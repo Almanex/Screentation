@@ -18,7 +18,8 @@ const TOOLS: Array<{ type: ToolType; icon: string; label: string }> = [
   { type: 'rect', icon: '▢', label: 'Rect' },
   { type: 'step', icon: '①', label: 'Step' },
   { type: 'arrow', icon: '↗', label: 'Arrow' },
-  { type: 'blur', icon: '░', label: 'Blur' }
+  { type: 'blur', icon: '░', label: 'Blur' },
+  { type: 'eraser', icon: '⧇', label: 'Eraser' }
 ]
 
 const Toolbar: React.FC<ToolbarProps> = ({

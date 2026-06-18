@@ -42,7 +42,18 @@ export interface BlurAnnotation {
   blurRadius: number
 }
 
-export type Annotation = RectAnnotation | StepAnnotation | ArrowAnnotation | BlurAnnotation
+export interface EraserAnnotation {
+  id: string
+  type: 'eraser'
+  x: number
+  y: number
+  width: number
+  height: number
+  offsetX: number
+  offsetY: number
+}
+
+export type Annotation = RectAnnotation | StepAnnotation | ArrowAnnotation | BlurAnnotation | EraserAnnotation
 
 // ============================
 // Screenshot
@@ -102,7 +113,7 @@ export interface SaveAllParams {
 // Tool settings
 // ============================
 
-export type ToolType = 'select' | 'rect' | 'step' | 'arrow' | 'blur'
+export type ToolType = 'select' | 'rect' | 'step' | 'arrow' | 'blur' | 'eraser'
 
 export interface ToolSettings {
   activeTool: ToolType

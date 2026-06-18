@@ -17,12 +17,14 @@ import type {
   RectAnnotation,
   StepAnnotation,
   ArrowAnnotation,
-  BlurAnnotation
+  BlurAnnotation,
+  EraserAnnotation
 } from '../../../shared/types'
 import { useZoomToFit } from '../hooks/useZoomToFit'
 import AnnotationRect from './shapes/AnnotationRect'
 import StepMarker from './shapes/StepMarker'
 import BlurRect from './shapes/BlurRect'
+import EraserRect from './shapes/EraserRect'
 import './Canvas.css'
 
 interface CanvasProps {
@@ -181,7 +183,11 @@ const Canvas = forwardRef<CanvasHandle, CanvasProps>(
           return
         }
 
-        if (toolSettings.activeTool === 'rect' || toolSettings.activeTool === 'blur') {
+        if (
+          toolSettings.activeTool === 'rect' ||
+          toolSettings.activeTool === 'blur' ||
+          toolSettings.activeTool === 'eraser'
+        ) {
           if (clickedOnEmpty) {
             onSelectAnnotation(null)
             const stage = stageRef.current
@@ -294,6 +300,19 @@ const Canvas = forwardRef<CanvasHandle, CanvasProps>(
             }
             const newAnnotations = [...(screenshot.annotations || []), newBlur]
             onAnnotationsChange(newAnnotations)
+          } else if (toolSettings.activeTool === 'eraser') {
+            const newEraser: EraserAnnotation = {
+              id: uuidv4(),
+              type: 'eraser',
+              x,
+              y,
+              width,
+              height,
+              offsetX: width + 20,
+              offsetY: 0
+            }
+            const newAnnotations = [...(screenshot.annotations || []), newEraser]
+            onAnnotationsChange(newAnnotations)
           }
         }
         setDrawingRect(null)
@@ -349,6 +368,7 @@ const Canvas = forwardRef<CanvasHandle, CanvasProps>(
         case 'rect':
         case 'arrow':
         case 'blur':
+        case 'eraser':
           return 'crosshair'
         case 'step':
           return 'pointer'
@@ -467,6 +487,19 @@ const Canvas = forwardRef<CanvasHandle, CanvasProps>(
                     isSelected={selectedAnnotationId === ann.id}
                     onSelect={() => onSelectAnnotation(ann.id)}
                     onChange={(changes) => handleAnnotationChange(ann.id, changes)}
+                  />
+                )
+              }
+              if (ann.type === 'eraser') {
+                return (
+                  <EraserRect
+                    key={ann.id}
+                    shapeProps={ann}
+                    image={image}
+                    isSelected={selectedAnnotationId === ann.id}
+                    onSelect={() => onSelectAnnotation(ann.id)}
+                    onChange={(changes) => handleAnnotationChange(ann.id, changes)}
+                    onDelete={() => handleAnnotationDelete(ann.id)}
                   />
                 )
               }

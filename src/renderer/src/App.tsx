@@ -276,6 +276,8 @@ const AppInner: React.FC = () => {
         dispatch({ type: 'SET_TOOL_SETTINGS', payload: { activeTool: 'arrow' } }),
       '4': () =>
         dispatch({ type: 'SET_TOOL_SETTINGS', payload: { activeTool: 'blur' } }),
+      '5': () =>
+        dispatch({ type: 'SET_TOOL_SETTINGS', payload: { activeTool: 'eraser' } }),
       'Escape': () => {
         dispatch({ type: 'SET_TOOL_SETTINGS', payload: { activeTool: 'select' } })
         dispatch({ type: 'SET_SELECTED_ANNOTATION', payload: null })
