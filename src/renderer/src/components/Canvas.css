@@ -1,0 +1,34 @@
+.canvas-container {
+  flex: 1;
+  background: #0a0a14;
+  overflow: hidden;
+  position: relative;
+}
+
+.canvas-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #555577;
+  user-select: none;
+}
+
+.canvas-empty-state .icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.canvas-empty-state .title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #7777aa;
+}
+
+.canvas-empty-state .subtitle {
+  font-size: 13px;
+  color: #444466;
+}

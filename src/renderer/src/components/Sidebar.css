@@ -1,0 +1,163 @@
+.sidebar {
+  width: 140px;
+  min-width: 140px;
+  background: #1a1a2e;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-right: 1px solid #2a2a44;
+  padding: 8px;
+  gap: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #333355 transparent;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #333355;
+  border-radius: 2px;
+}
+
+.sidebar-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #555577;
+  user-select: none;
+  text-align: center;
+  padding: 16px;
+}
+
+.sidebar-empty .icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+  opacity: 0.5;
+}
+
+.sidebar-empty .text {
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.sidebar-card {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  background: #12122a;
+  flex-shrink: 0;
+}
+
+.sidebar-card:hover {
+  border-color: #444466;
+}
+
+.sidebar-card.active {
+  border-color: #6c5ce7;
+  box-shadow: 0 0 8px rgba(108, 92, 231, 0.3);
+}
+
+.sidebar-card .thumbnail {
+  width: 100%;
+  display: block;
+  object-fit: contain;
+  background: #0a0a14;
+}
+
+.sidebar-card .badge {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ccc;
+  font-size: 10px;
+  font-weight: 600;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.sidebar-card .delete-btn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #888;
+  border: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease, background 0.15s ease;
+  padding: 0;
+}
+
+.sidebar-card:hover .delete-btn {
+  opacity: 1;
+}
+
+.sidebar-card .delete-btn:hover {
+  background: rgba(231, 76, 60, 0.8);
+  color: #fff;
+}
+
+/* Paste Button & Scrollable list wrapper */
+.sidebar-paste-btn {
+  background: #6c5ce7;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(108, 92, 231, 0.2);
+}
+
+.sidebar-paste-btn:hover {
+  background: #7c6ef7;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(108, 92, 231, 0.3);
+}
+
+.sidebar-paste-btn:active {
+  transform: translateY(0);
+}
+
+.sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+  padding-right: 2px;
+}

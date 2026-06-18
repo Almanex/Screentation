@@ -1,0 +1,196 @@
+.export-panel {
+  background: #1a1a2e;
+  border-left: 1px solid #2a2a44;
+  border-top: 1px solid #2a2a44;
+  padding: 0;
+  width: 220px;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+}
+
+.export-section {
+  padding: 10px 14px;
+  border-bottom: 1px solid #2a2a44;
+}
+
+.export-section-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #556;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.export-field {
+  margin-bottom: 8px;
+}
+
+.export-field:last-child {
+  margin-bottom: 0;
+}
+
+.export-label {
+  font-size: 10px;
+  color: #667;
+  margin-bottom: 4px;
+  display: block;
+}
+
+/* Output folder row */
+.folder-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.folder-path {
+  flex: 1;
+  font-size: 11px;
+  color: #8888aa;
+  background: #12122a;
+  padding: 5px 8px;
+  border-radius: 4px;
+  border: 1px solid #2a2a44;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  direction: rtl;
+  text-align: left;
+}
+
+.folder-btn {
+  background: #12122a;
+  border: 1px solid #2a2a44;
+  border-radius: 4px;
+  color: #8888aa;
+  font-size: 14px;
+  padding: 4px 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.folder-btn:hover {
+  border-color: #6c5ce7;
+  color: #ccc;
+}
+
+/* Text input */
+.export-input {
+  width: 100%;
+  background: #12122a;
+  border: 1px solid #2a2a44;
+  border-radius: 4px;
+  color: #ccc;
+  font-size: 12px;
+  padding: 5px 8px;
+  outline: none;
+  transition: border-color 0.15s ease;
+  box-sizing: border-box;
+}
+
+.export-input:focus {
+  border-color: #6c5ce7;
+}
+
+/* Select dropdown */
+.export-select {
+  width: 100%;
+  background: #12122a;
+  border: 1px solid #2a2a44;
+  border-radius: 4px;
+  color: #ccc;
+  font-size: 12px;
+  padding: 5px 8px;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.export-select:focus {
+  border-color: #6c5ce7;
+}
+
+/* Quality slider */
+.export-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.export-slider-row input[type="range"] {
+  flex: 1;
+  accent-color: #6c5ce7;
+  height: 4px;
+}
+
+.export-slider-row .value {
+  font-size: 11px;
+  color: #6c5ce7;
+  min-width: 28px;
+  text-align: right;
+  font-weight: 600;
+}
+
+/* Save buttons */
+.save-buttons {
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.save-btn {
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.save-btn.primary {
+  background: #6c5ce7;
+  color: #fff;
+}
+
+.save-btn.primary:hover:not(:disabled) {
+  background: #7d6ef0;
+}
+
+.save-btn.secondary {
+  background: #12122a;
+  border: 1px solid #2a2a44;
+  color: #aaa;
+}
+
+.save-btn.secondary:hover:not(:disabled) {
+  border-color: #6c5ce7;
+  color: #ccc;
+}
+
+.save-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.save-btn .hint {
+  font-size: 10px;
+  opacity: 0.6;
+  font-weight: 400;
+}
+
+.save-btn .count-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-size: 10px;
+}
